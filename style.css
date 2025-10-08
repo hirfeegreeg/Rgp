@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at center, #020202 0%, #000 100%);
+  color: #0ff;
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  text-align: center;
+  margin-top: 3vh;
+  text-shadow: 0 0 8px #0ff;
+}
+
+h1[data-glitch] {
+  position: relative;
+  display: inline-block;
+  font-size: 3em;
+  letter-spacing: 2px;
+  animation: flicker 3s infinite;
+}
+
+h1[data-glitch]::before,
+h1[data-glitch]::after {
+  content: attr(data-glitch);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+h1[data-glitch]::before {
+  animation: glitchTop 2s infinite linear alternate-reverse;
+  color: #f0f;
+}
+
+h1[data-glitch]::after {
+  animation: glitchBottom 1.8s infinite linear alternate-reverse;
+  color: #0ff;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+main {
+  flex: 1;
+  width: 80%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#terminal {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #0ff;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1em;
+  margin-top: 2em;
+  box-shadow: 0 0 10px #0ff;
+}
+
+.screen {
+  height: 200px;
+  overflow-y: auto;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px dashed #0ff;
+}
+
+#cmd {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #0ff;
+  font-size: 1em;
+  outline: none;
+  margin-top: 10px;
+}
+
+#lore {
+  margin-top: 3em;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+#lore.visible {
+  opacity: 1;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9em;
+  opacity: 0.4;
+  margin-bottom: 1em;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.3; }
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); transform: translate(0,0); }
+  50% { clip: rect(0, 9999px, 5px, 0); transform: translate(-2px,-2px); }
+  100% { clip: rect(0, 9999px, 2px, 0); transform: translate(2px,2px); }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); transform: translate(0,0); }
+  50% { clip: rect(0, 9999px, 5px, 0); transform: translate(2px,2px); }
+  100% { clip: rect(0, 9999px, 2px, 0); transform: translate(-2px,-2px); }
+}
+
+@keyframes staticNoise {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.1; }
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(transparent 0px, rgba(255,255,255,0.05) 2px, transparent 4px);
+  animation: staticNoise 0.1s infinite;
+  pointer-events: none;
+}
