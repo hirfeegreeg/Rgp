@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Archive of the Lost Signal</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="overlay"></div>
+
+  <header>
+    <h1 data-glitch="THE ARCHIVE">THE ARCHIVE</h1>
+    <p class="subtitle">Frequency: <span id="freq">404.23</span> MHz</p>
+  </header>
+
+  <main>
+    <section id="terminal">
+      <div class="screen">
+        <pre id="log"></pre>
+      </div>
+      <input type="text" id="cmd" placeholder="> type command..." autocomplete="off">
+    </section>
+
+    <div id="lore" class="hidden">
+      <h2>Recovered Transmission</h2>
+      <p>
+        We thought the signal was gone. But it never left. It *moved*.<br>
+        Each time the array aligned, we heard the same phrase:
+        <span class="cipher">“δεν υπάρχει τέλος”</span> — there is no end.
+      </p>
+      <p>
+        Someone tried to shut it down. But it waits in the static.<br>
+        <span id="blink">_</span>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 1989-██ The Helios Project. Access Level: CLASSIFIED</p>
+  </footer>
+</body>
+</html>
